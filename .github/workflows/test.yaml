@@ -25,3 +25,9 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Print branch and commit info
+        run: |
+          echo "Branch: ${{github.ref}}"
+          echo "comit SHA: ${{github.sha}}"
+          echo "Actor: ${{github.actor}}"
