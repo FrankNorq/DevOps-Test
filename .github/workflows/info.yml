@@ -1,11 +1,11 @@
-name: Hello CI
+name: Hello Info
 
 on:
   push:
-    branches: ["main"]
+    branches: ["develop"]
 
 jobs:
-  build-test:
+  build-info-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,11 +23,8 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Build project
-        run: npm run build
-
       - name: Print branch and commit info
         run: |
-          echo "Branch: ${{github.ref}}"
-          echo "comit SHA: ${{github.sha}}"
-          echo "Actor: ${{github.actor}}"
+          echo "Branch: ${GITHUB_REF_NAME}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Actor: ${{ github.actor }}"
