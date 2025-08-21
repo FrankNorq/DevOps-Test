@@ -5,6 +5,11 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(3);
+  console.log("hejhejhejhejehej");
+  console.log("hejhejhejhejehej");
+  console.log("hejhejhejhejehej");
+  console.log("hejhejhejhejehej");
+  console.log("hejhejhejhejehej");
 
   return (
     <>
