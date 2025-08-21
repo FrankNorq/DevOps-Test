@@ -18,13 +18,13 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm instal
+        run: npm install
 
       - name: Run tests
         run: npm test
 
       - name: Build project
-        run: npm run build
+        run: npm run bajs
 
       - name: Print branch and commit info
         run: |
