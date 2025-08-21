@@ -24,7 +24,7 @@ jobs:
         run: npm test
 
       - name: Build project
-        run: npm run bajs
+        run: npm run build
 
       - name: Print branch and commit info
         run: |
