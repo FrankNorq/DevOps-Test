@@ -9,6 +9,10 @@ function App() {
   console.log("hejsan hoppsan");
 
   console.log("hejhejhejhejehej");
+  console.log("hejhejhejhejehej");
+  console.log("hejhejhejhejehej");
+  console.log("hejhejhejhejehej");
+  console.log("hejhejhejhejehej");
 
 
   return (
