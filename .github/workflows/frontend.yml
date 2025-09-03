@@ -1,0 +1,47 @@
+name: Frontend CI
+
+on:
+  pull_request:
+    branches: [develop]
+    paths:
+      - "app/web/**"
+      - ".github/workflows/**"
+  push:
+    branches: [develop]
+    paths:
+      - "app/web/**"
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: app/web # kör alla kommandon i frontend-mappen
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: app/web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests (Vitest)
+        run: npm run test:ci # t.ex. "vitest run --coverage"
+
+      # Bygg om du vill verifiera att fronten kompilerar
+      - name: Build project
+        run: npm run build
+
+      - name: Print branch and commit info
+        run: |
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Actor: ${{ github.actor }}"
